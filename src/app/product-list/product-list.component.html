@@ -1,1 +1,13 @@
-<p>product-list works!</p>
+<h2>Products</h2>
+
+<div *ngFor="let product of products">
+    <h3>
+        <a [title]="product.name + ' details'" [routerLink]="['/products', product.id]">{{product.name}}</a>
+        <p *ngIf="product.description">
+            {{product.description}}
+        </p>
+        <p>
+        <button (click)="share()">Share</button>
+        <app-products-alert [product]="product" (notify)="notify()"></app-products-alert>
+    </h3>
+</div>
